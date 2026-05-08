@@ -1,9 +1,8 @@
 """Entry point for the backend app (placeholder)."""
+from fastapi import FastAPI
 
-def create_app():
-    """Return a simple app placeholder object."""
-    return {"name": "design-status-backend", "status": "placeholder"}
+app = FastAPI(title="Design Progress Engine", version="0.1.0")
 
-
-if __name__ == "__main__":
-    print(create_app())
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
