@@ -18,6 +18,7 @@
         "ms-toolsai.jupyter",
         "GitHub.copilot",
         "GitHub.copilot-chat",
+        "openai.chatgpt",
         "ms-azuretools.vscode-docker",
         "cweijan.vscode-postgresql-client2",
         "mtxr.sqltools",
