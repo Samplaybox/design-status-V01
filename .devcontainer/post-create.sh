@@ -33,4 +33,7 @@ if ! grep -q "source /workspace/.venv/bin/activate" ~/.bashrc; then
     echo 'source /workspace/.venv/bin/activate' >> ~/.bashrc
 fi
 
+echo "Installing Codex CLI..."
+npm list -g @openai/codex >/dev/null 2>&1 || npm install -g @openai/codex
+
 echo "Post-create setup completed."
