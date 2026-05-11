@@ -4,18 +4,17 @@
   "service": "app",
   "workspaceFolder": "/workspace",
   "features": {
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.11"
-    },
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
   },
   "customizations": {
     "vscode": {
       "extensions": [
+        "openai.chatgpt",
         "ms-python.python",
         "ms-python.vscode-pylance",
-        "ms-python.flake8",
-        "ms-python.black-formatter",
         "ms-toolsai.jupyter",
         "GitHub.copilot",
         "GitHub.copilot-chat",
@@ -28,9 +27,10 @@
         "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
         "python.terminal.activateEnvInCurrentTerminal": true,
         "python.terminal.activateEnvironment": true,
-        "[python]": {
-          "editor.defaultFormatter": "ms-python.black-formatter"
-        },
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": true,
+        "python.formatting.provider": "black",
         "editor.formatOnSave": true,
         "files.autoSave": "onFocusChange"
       }

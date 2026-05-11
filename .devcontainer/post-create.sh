@@ -35,10 +35,18 @@ EOF
     pip install -r /workspace/backend/requirements.txt
 fi
 
-# Auto-activate venv in every new Bash terminal
+echo "Setting venv auto-activation..."
+
 if ! grep -q "source /workspace/.venv/bin/activate" ~/.bashrc; then
     echo 'source /workspace/.venv/bin/activate' >> ~/.bashrc
 fi
 
-echo "Post-create setup completed."
+echo "Installing Codex CLI..."
 
+if command -v npm >/dev/null 2>&1; then
+    npm list -g @openai/codex >/dev/null 2>&1 || npm install -g @openai/codex
+else
+    echo "npm not found. Codex CLI was not installed."
+fi
+
+echo "Post-create setup completed."
