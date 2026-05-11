@@ -7,6 +7,8 @@ openpyxl==3.1.2
 pydantic==2.5.0
 pytest==7.4.3
 httpx==0.25.1
+black==24.4.2
+flake8==7.0.0
 # For later phases (PostgreSQL support – not used in Phase 1 but keep ready)
 psycopg2-binary==2.9.9
 sqlalchemy==2.0.23
