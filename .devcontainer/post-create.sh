@@ -48,9 +48,12 @@ fi
 
 echo "Setting venv auto-activation..."
 
-if ! grep -q "source /workspace/.venv/bin/activate" ~/.bashrc; then
-    echo 'source /workspace/.venv/bin/activate' >> ~/.bashrc
-fi
+for shell_rc in ~/.bashrc ~/.zshrc; do
+    touch "$shell_rc"
+    if ! grep -q "source /workspace/.venv/bin/activate" "$shell_rc"; then
+        echo 'source /workspace/.venv/bin/activate' >> "$shell_rc"
+    fi
+done
 
 echo "Installing Codex CLI..."
 
