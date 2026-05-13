@@ -3,35 +3,21 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
-  "forwardPorts": [8000, 5432],
-  "portsAttributes": {
-    "8000": {
-      "label": "FastAPI",
-      "onAutoForward": "notify"
-    },
-    "5432": {
-      "label": "PostgreSQL",
-      "onAutoForward": "silent"
-    }
-  },
   "features": {
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.11"
-    },
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/node:1": {
+    "ghcr.io/devcontainers/features/node:2": {
       "version": "lts"
     }
   },
   "customizations": {
     "vscode": {
       "extensions": [
+        "openai.chatgpt",
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-toolsai.jupyter",
         "GitHub.copilot",
         "GitHub.copilot-chat",
-        "openai.chatgpt",
         "ms-azuretools.vscode-docker",
         "cweijan.vscode-postgresql-client2",
         "mtxr.sqltools",
@@ -41,9 +27,10 @@
         "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
         "python.terminal.activateEnvInCurrentTerminal": true,
         "python.terminal.activateEnvironment": true,
-        "python.analysis.typeCheckingMode": "basic",
-        "black-formatter.path": ["/workspace/.venv/bin/black"],
-        "flake8.path": ["/workspace/.venv/bin/flake8"],
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": true,
+        "python.formatting.provider": "black",
         "editor.formatOnSave": true,
         "files.autoSave": "onFocusChange"
       }
