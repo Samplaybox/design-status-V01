@@ -48,11 +48,19 @@ fi
 
 echo "Setting venv auto-activation..."
 
-for shell_rc in ~/.bashrc ~/.zshrc; do
+activate_snippet='
+# Auto-activate the project Python environment in interactive terminals.
+if [ -z "${VIRTUAL_ENV:-}" ] && [ -f /workspace/.venv/bin/activate ]; then
+    source /workspace/.venv/bin/activate
+fi
+'
+
+for shell_rc in /home/vscode/.bashrc /home/vscode/.zshrc; do
     touch "$shell_rc"
-    if ! grep -q "source /workspace/.venv/bin/activate" "$shell_rc"; then
-        echo 'source /workspace/.venv/bin/activate' >> "$shell_rc"
+    if ! grep -q "/workspace/.venv/bin/activate" "$shell_rc"; then
+        printf "%s\n" "$activate_snippet" >> "$shell_rc"
     fi
+    chown vscode:vscode "$shell_rc" 2>/dev/null || true
 done
 
 echo "Installing Codex CLI..."

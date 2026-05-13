@@ -36,6 +36,6 @@
       }
     }
   },
-  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "postCreateCommand": "bash /workspace/design-status-V01/.devcontainer/post-create.sh",
   "remoteUser": "vscode"
 }
